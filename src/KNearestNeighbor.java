@@ -63,9 +63,10 @@ public class KNearestNeighbor {
 	}
 
 	public void printConfusionMatrix(List<TrainingDataItem> items) {
+		System.out.println("Real Class -> Classified Class");
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
 		for (TrainingDataItem i : items) {
-			String key = classify(i) + " -> " + i.getTargetClass();
+			String key = i.getTargetClass() + " -> " + classify(i);
 			map.put(key, map.getOrDefault(key, 0) + 1);
 		}
 
