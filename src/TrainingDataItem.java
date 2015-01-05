@@ -6,91 +6,92 @@ public class TrainingDataItem {
 	public TrainingDataItem(String str) {
 
 		String[] a = str.split(",");
-		
-		switch(a[0]) {
-			case "v-high":
-				this.buying = 12;
-				break;
-			case "high":
-				this.buying = 9;
-				break;
-			case "med":
-				this.buying = 6;
-				break;
-			case "low":
-				this.buying = 3;
-				break;					
-		}
-		   
-		switch(a[1]) {
-			case "v-high":
-				this.maint = 12;
-				break;
-			case "high":
-				this.maint = 9;
-				break;
-			case "med":
-				this.maint = 6;
-				break;
-			case "low":
-				this.maint = 3;
-				break;					
-		}
-		
-		switch(a[2]) {
-			case "5-more":
-				this.doors = 12;
-				break;
-			case "4":
-				this.doors = 9;
-				break;
-			case "3":
-				this.doors = 6;
-				break;
-			case "2":
-				this.doors = 3;
-				break;			
+
+		switch (a[0]) {
+		case "v-high":
+			this.buying = 12;
+			break;
+		case "high":
+			this.buying = 9;
+			break;
+		case "med":
+			this.buying = 6;
+			break;
+		case "low":
+			this.buying = 3;
+			break;
 		}
 
-		switch(a[3]) {
-			case "more":
-				this.persons = 12;
-				break;
-			case "4":
-				this.persons = 8;
-				break;
-			case "2":
-				this.persons = 4;
-				break;		
+		switch (a[1]) {
+		case "v-high":
+			this.maint = 12;
+			break;
+		case "high":
+			this.maint = 9;
+			break;
+		case "med":
+			this.maint = 6;
+			break;
+		case "low":
+			this.maint = 3;
+			break;
 		}
-		
-		switch(a[4]) {
-			case "big":
-				this.lug_boot = 12;
-				break;
-			case "med":
-				this.lug_boot = 8;
-				break;
-			case "small":
-				this.lug_boot = 4;
-				break;		
+
+		switch (a[2]) {
+		case "5-more":
+			this.doors = 12;
+			break;
+		case "4":
+			this.doors = 9;
+			break;
+		case "3":
+			this.doors = 6;
+			break;
+		case "2":
+			this.doors = 3;
+			break;
 		}
-		
-		switch(a[5]) {
-			case "high":
-				this.safety = 12;
-				break;
-			case "med":
-				this.safety = 8;
-				break;
-			case "low":
-				this.safety = 4;
-				break;		
+
+		switch (a[3]) {
+		case "more":
+			this.persons = 12;
+			break;
+		case "4":
+			this.persons = 8;
+			break;
+		case "2":
+			this.persons = 4;
+			break;
 		}
-		
+
+		switch (a[4]) {
+		case "big":
+			this.lug_boot = 12;
+			break;
+		case "med":
+			this.lug_boot = 8;
+			break;
+		case "small":
+			this.lug_boot = 4;
+			break;
+		}
+
+		switch (a[5]) {
+		case "high":
+			this.safety = 12;
+			break;
+		case "med":
+			this.safety = 8;
+			break;
+		case "low":
+			this.safety = 4;
+			break;
+		}
+
 		this.targetClass = a[6];
 	}
 
+	// summed square error
 	public double distance(TrainingDataItem item) {
 		double res = 0;
 		res += Math.pow(this.buying - item.buying, 2);
@@ -99,9 +100,10 @@ public class TrainingDataItem {
 		res += Math.pow(this.persons - item.persons, 2);
 		res += Math.pow(this.lug_boot - item.lug_boot, 2);
 		res += Math.pow(this.safety - item.safety, 2);
+
 		return res;
 	}
-	
+
 	public int getBuying() {
 		return buying;
 	}
